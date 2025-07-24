@@ -1,0 +1,12 @@
+[
+  {
+    "op" : "move",
+    "from" : "/genericScriptContexts/stealing",
+    "path" : "/tbworkaround_stealing_old"
+  },
+  {
+    "op" : "add",
+    "path" : "/genericScriptContexts/stealing",
+    "value" : "/scripts/player/tbworkaround_stealing.lua"
+  }
+]
