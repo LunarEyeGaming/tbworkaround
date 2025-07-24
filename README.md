@@ -32,7 +32,7 @@ end
 
 It should be noted that vanilla Starbound also uses these handlers in `/scripts/player/stealing.lua`. Due to how entity message handling works, only one of these two scripts will actually receive the message.
 
-This mod works around that issue by making the `stealing.lua` script send extra messages to the player (courtesy of patman for providing the basis for this workaround).
+This mod works around that issue by making the `stealing.lua` script send extra messages to the player (courtesy of patman for providing the basis for this workaround and for helping with it).
 
 I very strongly recommend to every modder who wants to set a `tileBroken` or `tileEntityBroken` handler: Please use this library mod instead. It will prevent any interference that may occur from using the former approach.
 
@@ -40,9 +40,13 @@ I very strongly recommend to every modder who wants to set a `tileBroken` or `ti
 
 First, before you start using this mod, you need to install it. You can download and extract this code as a ZIP file or download the PAK file through the releases.
 
-The second thing you need to do when using this is, at the top of your script, add
-```lua
-require "/scripts/tbworkaround/interface.lua"
+The second thing you need to do when using this is to add a patch to `/tbworkaround_relays.config`:
+```json
+[
+  { "op" : "add", "path" : "/tileBroken/-", "value" : "example-tileBroken" },
+  // OR
+  { "op" : "add", "path" : "/tileEntityBroken/-", "value" : "example-tileEntityBroken" }
+]
 ```
 
 Then, where you would put a call of one of the two forms
@@ -51,11 +55,11 @@ message.setHandler("tileBroken", function() --[[...]] end)
 -- OR
 message.setHandler("tileEntityBroken", function() --[[...]] end)
 ```
-put one of these instead:
+put something like one of these instead:
 ```lua
-tbWorkaround.onTileBroken(function() --[[...]] end)
+message.setHandler("example-tileBroken", function() --[[...]] end)
 -- OR
-tbWorkaround.onTileEntityBroken(function() --[[...]] end)
+message.setHandler("example-tileEntityBroken", function() --[[...]] end)
 ```
 
 That is all you have to do.
