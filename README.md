@@ -62,4 +62,9 @@ message.setHandler("example-tileBroken", function() --[[...]] end)
 message.setHandler("example-tileEntityBroken", function() --[[...]] end)
 ```
 
+Lastly, add to an entry called `"includes"` in your `_metadata` that contains the name "TBWorkaround" like so:
+```json
+"includes" : ["TBWorkaround"]
+```
+
 That is all you have to do.

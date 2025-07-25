@@ -1,0 +1,8 @@
+{
+  "author" : "Void Eye Gaming",
+  "description" : "A library mod that allows modders to use the \"tileBroken\" and \"tileEntityBroken\" entity message handlers without interfering with each other or with vanilla.\n\nIt does absolutely nothing on its own. Modders may make this a required item on their workshop uploads.\n\nPlease refer to the README.md document on the [url=https://github.com/LunarEyeGaming/tbworkaround]GitHub repository[/url] or in the unpacked assets for this mod for more information.",
+  "friendlyName" : "tileBroken Workaround",
+  "name" : "TBWorkaround",
+  "tags" : "Miscellaneous",
+  "version" : "1.0"
+}
