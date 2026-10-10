@@ -19,8 +19,12 @@ function init()
     end)
   end
 
+  local oldInit = init
   -- Plug the old stealing script into this script.
   local script = root.assetJson("/player.config:tbworkaround_stealing_old")
   require(script)
-  init()  -- Initialize the old stealing script.
+  -- Safety check in case the loaded script does not contain `init`
+  if init ~= oldInit then
+    init()  -- Initialize the old stealing script.
+  end
 end
